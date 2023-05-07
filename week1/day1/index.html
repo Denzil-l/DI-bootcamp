@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parallax-horizontal {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-horizontal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://picsum.photos/1200/800');
+  background-size: cover;
+  background-position: center;
+  transform: translate(0, 0);
+  transition: transform 0.2s ease-out;
+}
+
+.parallax-horizontal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+}
+
+.parallax-horizontal-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.parallax-horizontal-content p {
+  font-size: 1.5rem;
+}
+
+    </style>
+</head>
+<body>
+    <section class="parallax-horizontal">
+        <div class="parallax-horizontal-background"></div>
+        <div class="parallax-horizontal-content">
+          <h1>Horizontal Parallax Effect with Mouse Tracking</h1>
+          <p>Move your mouse to see the parallax effect in action!</p>
+        </div>
+      </section>
+    <script>
+const parallax = document.querySelector('.parallax-horizontal');
+const background = parallax.querySelector('.parallax-horizontal-background');
+
+parallax.addEventListener
+
+    </script>
+</body>
+</html>
