@@ -14,7 +14,7 @@
 #     if new_member != 'quit':
 #         new_member = new_member.split(":")
 #         print(new_member)
-#         new_family[new_member[0]] = int(new_member[1])     
+#         new_family[new_member[0]] = int(new_member[1])     #review this line
 #     else:
 #         break
 # print(f'the list of your family: {new_family}')
@@ -66,6 +66,8 @@
 # print(brand['number_stores']) # This key was changed after updated from more_on_zara
 
 # #Exercise 4
+# There is a more efficient way to do it. hint: use list and zip()
+# Also you need to review step4.1 and 4.2
 # users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
 # disney_users_A = {}
 # disney_users_B = {}
