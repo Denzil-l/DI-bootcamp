@@ -65,25 +65,25 @@
 # brand.update(more_on_zara)
 # print(brand['number_stores']) # This key was changed after updated from more_on_zara
 
-# #Exercise 4
-# There is a more efficient way to do it. hint: use list and zip()
-# Also you need to review step4.1 and 4.2
-# users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
-# disney_users_A = {}
-# disney_users_B = {}
-# disney_users_C = {}
-# disney_users_D = {}
-# for item in enumerate(users):
-#     disney_users_A[item[0]] = item[1]
-#     disney_users_B[item[1]] = item[0]
-# users.sort()
-# for item in enumerate(users):
-#     disney_users_C[item[0]] = item[1]
+#Exercise 4
+#There is a more efficient way to do it. hint: use list and zip()
+#Also you need to review step4.1 and 4.2
+users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
+disney_users_A = {}
+disney_users_B = {}
+disney_users_C = {}
+disney_users_D = {}
+for item in enumerate(users):
+    disney_users_A[item[0]] = item[1]
+    disney_users_B[item[1]] = item[0]
+users.sort()
+for item in enumerate(users):
+    disney_users_C[item[0]] = item[1]
 
-# for item in enumerate(users):
-#     if 'i' in item[1] or 'm' == item[1][0] or 'p' == item[1][0] or 'M' == item[1][0] or 'P' == item[1][0]:
-#         disney_users_D[item[0]] = item[1]
-# print(disney_users_A)
-# print(disney_users_B)
-# print(disney_users_C)
-# print(disney_users_D)
+for item in enumerate(users):
+    if 'i' in item[1] or 'm' == item[1][0] or 'p' == item[1][0] or 'M' == item[1][0] or 'P' == item[1][0]:
+        disney_users_D[item[0]] = item[1]
+print(disney_users_A)
+print(disney_users_B)
+print(disney_users_C)
+print(disney_users_D)
