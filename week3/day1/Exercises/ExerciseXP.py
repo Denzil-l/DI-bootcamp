@@ -65,67 +65,70 @@
 # stairway.sing_me_a_song()
 
 
-# #Exercise 4
+#Exercise 4
 
-# class Zoo():
-#     def __init__(self, zoo_name):
-#         self.name = zoo_name
-#         self.animals = []
-#     def add_animals(self,new_animal):
-#         if self.animals.count(new_animal) == 0:
-#             self.animals.append(new_animal)
-#     def get_animals(self):
-#         for i in self.animals:
-#             print(i)
-#     def sell_animal(self,animal_sold):
-#         if self.animals.count(animal_sold) != 0:
-#             self.animals.remove(animal_sold)
-#     def sort_animals(self):
-#         self.dict = []
-#         self.animals.sort()
-#         self.dict.append([self.animals[0]])
-#         index = 0
-#         for i in range(1,len(self.animals)):
-#             if self.animals[i][0] == self.animals[i-1][0]:
-#                 self.dict[index].append(self.animals[i])
-#             else:
-#                 index += 1
-#                 self.dict.append([])
-#                 self.dict[index].append(self.animals[i])
-#         print(self.dict)
-#     def get_groups(self):
-#         for i in self.dict:
-#             for j in i:
-#                 print(j)
+class Zoo():
+    def __init__(self, zoo_name):
+        self.name = zoo_name
+        self.animals = []
+    def add_animals(self,new_animal):
+        if self.animals.count(new_animal) == 0:
+            self.animals.append(new_animal)
+    def get_animals(self):
+        new_str = ''
+        for i in self.animals:
+            new_str = new_str + ' ' + i
+        print(new_str)
+    def sell_animal(self,animal_sold):
+        if self.animals.count(animal_sold) != 0:
+            self.animals.remove(animal_sold)
+    def sort_animals(self):
+        self.dict = []
+        self.animals.sort()
+        self.dict.append([self.animals[0]])
+        self.real_dict = {}
+        index = 0
+        for i in range(1,len(self.animals)):
+            if self.animals[i][0] == self.animals[i-1][0]:
+                self.dict[index].append(self.animals[i])
+            else:
+                index += 1
+                self.dict.append([])
+                self.dict[index].append(self.animals[i])
+        for i in range(len(self.dict)):
+            self.real_dict[i] = self.dict[i]
+    def get_groups(self):
+        for i,j in self.real_dict.items():
+            print(f'{i} : {j}')
 
 
-# ramat_gan_safari = Zoo('RamatGan ZOO')
-# ramat_gan_safari.add_animals("Lion")
-# ramat_gan_safari.add_animals("Lemur")
-# ramat_gan_safari.add_animals("Liker")
-# ramat_gan_safari.add_animals("Tortoises")
-# ramat_gan_safari.add_animals("Tttt")
-# ramat_gan_safari.add_animals("Aplle")
-# ramat_gan_safari.add_animals("Cat")
-# ramat_gan_safari.add_animals("Cow")
-# ramat_gan_safari.add_animals("Dog")
-# ramat_gan_safari.add_animals("Dog")
-# ramat_gan_safari.add_animals("Dog")
-# ramat_gan_safari.add_animals("Dog")
-# ramat_gan_safari.add_animals("Horse")
-# ramat_gan_safari.add_animals("Mouse")
-# ramat_gan_safari.add_animals("Rabbit")
-# ramat_gan_safari.add_animals("Sheep")
-# ramat_gan_safari.add_animals("Hamster")
-# ramat_gan_safari.add_animals("Goose")
-# ramat_gan_safari.add_animals("Goat")
-# ramat_gan_safari.add_animals("Donkey")
-# ramat_gan_safari.add_animals("Donkey")
+ramat_gan_safari = Zoo('RamatGan ZOO')
+ramat_gan_safari.add_animals("Lion")
+ramat_gan_safari.add_animals("Lemur")
+ramat_gan_safari.add_animals("Liker")
+ramat_gan_safari.add_animals("Tortoises")
+ramat_gan_safari.add_animals("Tttt")
+ramat_gan_safari.add_animals("Aplle")
+ramat_gan_safari.add_animals("Cat")
+ramat_gan_safari.add_animals("Cow")
+ramat_gan_safari.add_animals("Dog")
+ramat_gan_safari.add_animals("Dog")
+ramat_gan_safari.add_animals("Dog")
+ramat_gan_safari.add_animals("Dog")
+ramat_gan_safari.add_animals("Horse")
+ramat_gan_safari.add_animals("Mouse")
+ramat_gan_safari.add_animals("Rabbit")
+ramat_gan_safari.add_animals("Sheep")
+ramat_gan_safari.add_animals("Hamster")
+ramat_gan_safari.add_animals("Goose")
+ramat_gan_safari.add_animals("Goat")
+ramat_gan_safari.add_animals("Donkey")
+ramat_gan_safari.add_animals("Donkey")
 
-# ramat_gan_safari.get_animals()
-# ramat_gan_safari.sell_animal('Dog')
-# ramat_gan_safari.sort_animals()
-# ramat_gan_safari.get_groups()
+ramat_gan_safari.get_animals()
+ramat_gan_safari.sell_animal('Dog')
+ramat_gan_safari.sort_animals()
+ramat_gan_safari.get_groups()
 
 
 # EXERCISES XP GOLD:
@@ -186,67 +189,67 @@
 #EXERCISE XP NINJA:
 
 
-#Exercise 1
+# #Exercise 1
 
-class Phone():
-    def __init__(self,phone_number):
-        self.phone_number = phone_number
-        self.call_history = []
-        self.messages = []
-    def call(self, other_phone):
-        string = f'{self.phone_number} called {other_phone.phone_number}'
-        self.call_history.append(string)
-        print(string)
-    def show_call_history(self):
-        for i in self.call_history:
-            print(i)
-    def send_message(self,other_phone,text):
-        string = text
-        new_dict = {
-            'to' : other_phone.phone_number,
-            'from': self.phone_number,
-            'content' : text
-        }
-        self.messages.append(new_dict)
+# class Phone():
+#     def __init__(self,phone_number):
+#         self.phone_number = phone_number
+#         self.call_history = []
+#         self.messages = []
+#     def call(self, other_phone):
+#         string = f'{self.phone_number} called {other_phone.phone_number}'
+#         self.call_history.append(string)
+#         print(string)
+#     def show_call_history(self):
+#         for i in self.call_history:
+#             print(i)
+#     def send_message(self,other_phone,text):
+#         string = text
+#         new_dict = {
+#             'to' : other_phone.phone_number,
+#             'from': self.phone_number,
+#             'content' : text
+#         }
+#         self.messages.append(new_dict)
         
-    def show_outgoing_messages(self):
-        print('x')
-        for i in self.messages:
-            if i['from'] == self.phone_number:
-                to = i['to']
-                text = i['content']
-                print(f'Outgoing message from me to {to}:  {text}')
-    def show_incoming_messages(self):
-        for i in self.messages:
-            if i['from'] != self.phone_number:
-                other_number = i['from']
-                text = i['content']
-                print(f'Incoming message from {other_number} to me:  {text}')
-    def show_messages_from(self, other_phone):
-        print('x')
-        for i in self.messages:
-            if i['from'] == other_phone.phone_number:
-                print(i['content'])
+#     def show_outgoing_messages(self):
+#         print('x')
+#         for i in self.messages:
+#             if i['from'] == self.phone_number:
+#                 to = i['to']
+#                 text = i['content']
+#                 print(f'Outgoing message from me to {to}:  {text}')
+#     def show_incoming_messages(self):
+#         for i in self.messages:
+#             if i['from'] != self.phone_number:
+#                 other_number = i['from']
+#                 text = i['content']
+#                 print(f'Incoming message from {other_number} to me:  {text}')
+#     def show_messages_from(self, other_phone):
+#         print('x')
+#         for i in self.messages:
+#             if i['from'] == other_phone.phone_number:
+#                 print(i['content'])
 
-my_phone = Phone('0552876955')
-another_phone = Phone('0552876966')
+# my_phone = Phone('0552876955')
+# another_phone = Phone('0552876966')
 
-my_phone.call(another_phone)
-another_phone.call(my_phone)
-my_phone.call(another_phone)
-another_phone.call(my_phone)
-my_phone.call(another_phone)
-another_phone.call(my_phone)
-print('-------------------')
-my_phone.show_call_history()
-another_phone.show_call_history()
-my_phone.send_message(another_phone,'Hello mr Cat!!')
-another_phone.send_message(my_phone,'Hello Neo')
-print('-------------------')
-my_phone.show_incoming_messages()
-print('-------------------')
-my_phone.show_outgoing_messages()
-print('-------------------')
-my_phone.show_messages_from(another_phone)
+# my_phone.call(another_phone)
+# another_phone.call(my_phone)
+# my_phone.call(another_phone)
+# another_phone.call(my_phone)
+# my_phone.call(another_phone)
+# another_phone.call(my_phone)
+# print('-------------------')
+# my_phone.show_call_history()
+# another_phone.show_call_history()
+# my_phone.send_message(another_phone,'Hello mr Cat!!')
+# another_phone.send_message(my_phone,'Hello Neo')
+# print('-------------------')
+# my_phone.show_incoming_messages()
+# print('-------------------')
+# my_phone.show_outgoing_messages()
+# print('-------------------')
+# my_phone.show_messages_from(another_phone)
 
-#I cant realize methods incoming_messages() and messages_from() because I cant change(Or I don't now how) a messgae list in another phone. I mean if I sen a message to another phone and put information about it to my message list, I also must put this information to another phone's message list, otherwise wouldn't know that I send message to it. So if you have advise or hint, I will be I'll be happy
+# #I cant realize methods incoming_messages() and messages_from() because I cant change(Or I don't now how) a messgae list in another phone. I mean if I sen a message to another phone and put information about it to my message list, I also must put this information to another phone's message list, otherwise wouldn't know that I send message to it. So if you have advise or hint, I will be I'll be happy
