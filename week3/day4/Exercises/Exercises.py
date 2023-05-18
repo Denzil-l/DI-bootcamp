@@ -50,3 +50,8 @@
 
 # with open('Exercises/new_json.json', 'w') as file:
 #     json.dump(new_dict,file)
+
+
+#EXERCISES XP GOLD
+
+#Exercise 1 in another special file
