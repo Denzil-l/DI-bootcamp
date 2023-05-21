@@ -1,0 +1,10 @@
+-- select first_name, last_name, birth_date 
+-- from students
+-- order by last_name ASC 
+-- limit 4
+-- select * from students 
+-- order by birth_date DESC
+-- limit 1
+-- select * from students
+-- limit 3
+-- offset 2
