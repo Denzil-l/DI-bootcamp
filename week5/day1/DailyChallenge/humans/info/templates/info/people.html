@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>People List</title>
+</head>
+
+<body>
+    <ul>
+        {% for person in people %}
+        <li>
+            Id: {{ person.id }} Name: {{ person.name }} Age: {{ person.age }} Country: {{ person.country }}
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
