@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        li {
+            line-height: 24px;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+        }
+
+        .block {
+            padding: 10px;
+            margin: 20px;
+
+            border: 2px solid white;
+            border-radius: 15px;
+            display: inline-block;
+
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Unreturned rentals</h2>
+    {% for rental in unreturned_rentals %}
+    <div class="block">
+        <ul>
+            <li>Rental Date: {{rental.rental_date}}</li>
+            <li>Customer's name: {{rental.customer.first_name}} {{rental.customer.last_name}}</li>
+            {% for i in vehicle_size %}
+            {% if i.id == rental.vehicle.size_id %}
+            <li>Size: {{i.name}}</li>
+            {% endif %}
+            {% endfor %}
+            {% for i in vehicle_type %}
+            {% if i.id == rental.vehicle.vehicle_id %}
+            <li>Type: {{i.name}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <h2>Sorted rentals</h2>
+    {% for rental in sorted_rentals %}
+    <div class="block">
+        <ul>
+            <li>Rental Date: {{rental.rental_date}}</li>
+            <li>Return Date: {{rental.return_date}}</li>
+            <li>Customer's name: {{rental.customer.first_name}} {{rental.customer.last_name}}</li>
+            <li>Vehicle size id: {{rental.vehicle.size_id}}</li>
+            <li>Vehicle type id: {{rental.vehicle.vehicle_id}}</li>
+        </ul>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>

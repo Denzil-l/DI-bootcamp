@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".{% static 'style.css' %}" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {%for todo, form in todo_list%}
+    <div class="block">
+        <ul>
+            <li>{{todo.title}}</li>
+            <li>{{todo.details}}</li>
+            <li>{{todo.date_creation}}</li>
+            <li>{{todo.deadlain_date}}</li>
+            <form method="post">
+                {%csrf_token%}
+                {{form}}
+                <button type="submit">DONE</button>
+
+            </form>
+        </ul>
+    </div>
+    {%endfor%}
+
+
+</body>
+
+</html>

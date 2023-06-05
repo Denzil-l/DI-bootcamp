@@ -1,0 +1,33 @@
+{% extends 'partials/base.html' %}
+
+
+
+{% block title %}
+Homepage
+{% endblock %}
+{% block content %}
+{% include 'partials/navbar.html' %}
+
+<h1>Welcome to the Films Homepage</h1>
+<h2>Homepage</h2>
+{% for film in films %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ film.title }}</h5>
+        <p class="card-text">{{ film.release_date }}</p>
+        <p class="card-text">{{ film.director }}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Reviews:</h6>
+        <ul class="list-group">
+            {% for review in film.review_set.all %}
+            <li class="list-group-item">
+                {{ review.review_text }}
+                <span class="badge bg-primary">{{ review.rating }}</span>
+            </li>
+            {% empty %}
+            <li class="list-group-item">No reviews yet</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
