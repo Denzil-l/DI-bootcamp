@@ -14,14 +14,14 @@ class HomePageView (generic.ListView):
 class FilmCreateView (generic.CreateView):
     template_name = 'film/addFilm.html'
     form_class = FilmForm
-    success_url = '/homepage'
+    success_url = '/films/homepage'
     
 class DirectorCreateView (generic.CreateView):
     template_name = 'director/addDirector.html'
     form_class = DirectorForm
-    success_url = '/homepage'
+    success_url = '/films/homepage'
 
 class ReviewCreateView(generic.CreateView):
     form_class = ReviewForm
     template_name = 'review/addReview.html'
-    success_url = '/homepage'
+    success_url = '/films/homepage'

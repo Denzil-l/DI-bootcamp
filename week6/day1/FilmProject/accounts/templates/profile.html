@@ -1,0 +1,15 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+
+{% block content %}
+<h1> Profile </h1>
+
+{% include 'partials/navbar.html' %}
+<h2>User Name: {{user.username}}</h2>
+<h2>First Name: {{user.first_name}}</h2>
+<h2>Last Name: {{user.last_name}}</h2>
+{% endblock %}
