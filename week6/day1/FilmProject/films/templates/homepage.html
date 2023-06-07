@@ -8,8 +8,16 @@ Homepage
 {% block content %}
 {% include 'partials/navbar.html' %}
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 <h1>Welcome to the Films Homepage</h1>
 <h2>Homepage</h2>
+{% if user.is_authenticated %}
 {% for film in films %}
 <div class="card mb-3">
     <div class="card-body">
@@ -27,7 +35,14 @@ Homepage
             <li class="list-group-item">No reviews yet</li>
             {% endfor %}
         </ul>
+        <a class="btn btn-dark" href="http://127.0.0.1:8000/films/deleteFilm/{{film.id}}">Delete</a>
+        <a class="btn btn-primary" href="http://127.0.0.1:8000/films/addfavorite/{{film.id}}">Add to favorite</a>
+        <a class="btn btn-primary" href="http://127.0.0.1:8000/films/removefavorite/{{film.id}}">Remove from
+            favorite</a>
+        <a class="btn btn-primary" href="http://127.0.0.1:8000/films/film/{{film.id}}">Check this film</a>
+
     </div>
 </div>
 {% endfor %}
+{% endif %}
 {% endblock %}

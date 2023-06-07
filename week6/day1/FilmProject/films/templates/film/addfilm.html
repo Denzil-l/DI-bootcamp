@@ -8,6 +8,12 @@
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Add Film</button>
+    {{ formset.management_form }}
+    {% for producer_form in formset %}
+    {{ producer_form.as_p }}
+    {% endfor %}
+
+
+    <button class="btn btn-dark" type="submit">Add Film</button>
 </form>
 {% endblock %}

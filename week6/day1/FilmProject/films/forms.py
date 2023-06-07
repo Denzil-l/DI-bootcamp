@@ -1,5 +1,5 @@
 from django import forms
-from .models import Film,Director, Review
+from .models import Film,Director, Review,Producer
 
 class FilmForm(forms.ModelForm):
     class Meta:
@@ -14,3 +14,11 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = '__all__'
        
+class ProducerForm(forms.ModelForm):
+    class Meta:
+        model = Producer
+        fields ='__all__'
+
+ProducerFormSet = forms.modelformset_factory(model=Producer,
+                                             form=ProducerForm,
+                                             extra=0)
