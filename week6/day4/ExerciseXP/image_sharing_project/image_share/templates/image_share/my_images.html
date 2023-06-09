@@ -1,0 +1,29 @@
+{% extends 'partials/base.html' %}
+
+
+
+{% block title %}
+My Images
+{% endblock %}
+
+{% block content %}
+{% include 'partials/navbar.html' %}
+
+<h2>My Images:</h2>
+
+<div class="row">
+    {% for image in images %}
+    {% if request.user.id == image.user.id %}
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ image.image.url }}" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ image.title }}</h5>
+                <p class="card-text">{{ image.description }}</p>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    {% endfor %}
+</div>
+{% endblock content %}

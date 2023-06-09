@@ -1,8 +1,11 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.views import generic
+from django.urls import reverse_lazy
 from .forms import FilmForm, DirectorForm, ReviewForm,ProducerFormSet
 from .models import Film, Review
+from accounts.models import UserProfile
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import (LoginRequiredMixin,
                                         UserPassesTestMixin,
@@ -11,6 +14,19 @@ from django.contrib.auth.mixins import (LoginRequiredMixin,
 
 from accounts.models import User
 
+
+@login_required
+def add_to_favorites(request,film_id):
+    film = get_object_or_404(Film,id = film_id)
+    user_profile = UserProfile.objects.get(user = request.user)
+    user_profile.favorite_films.add(film)
+    return redirect(reverse_lazy('homepage'))
+@login_required
+def remove_from_favorites(request,film_id):
+    film = get_object_or_404(Film,id = film_id)
+    user_profile = UserProfile.objects.get(user = request.user)
+    user_profile.favorite_films.remove(film)
+    return redirect(reverse_lazy('homepage'))
 
 class HomePageView (generic.ListView):
     model = Film

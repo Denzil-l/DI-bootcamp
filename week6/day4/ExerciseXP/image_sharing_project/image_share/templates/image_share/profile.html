@@ -1,0 +1,44 @@
+{% extends 'partials/base.html' %}
+
+
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+{% include 'partials/navbar.html' %}
+
+<h2>Profile:</h2>
+
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Profile</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Username:</strong> {{ profile.user.username }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>First Name:</strong> {{ profile.user.first_name }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Last Name:</strong> {{ profile.user.last_name }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong> {{ profile.user.email }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Image Number:</strong> {{ profile.image_number }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
