@@ -1,12 +1,25 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Person
-from .forms import PersonForm
+from .forms import PersonSearchForm
+
+def search_person(request):
+    if request.method == 'POST':
+        form = PersonSearchForm(request.POST)
+        if form.is_valid():
+            search_query = form.cleaned_data['search_query']
+            if search_query.isdigit() or (search_query.startswith('+') and search_query[1:].isdigit()):
+                return redirect('person_by_phone', phone_number=search_query)
+            else:
+                return redirect('person_by_name', fullname=search_query)
+    else:
+        form = PersonSearchForm()
+    return render(request, 'search.html', {'form': form})
+
 
 def phone(request,phone_number):
     people = Person.objects.all()
     person =''
     for i in people:
-
         if phone_number == i.phone_number:
             person = i
             break
@@ -21,26 +34,3 @@ def name(request,fullname):
             break
     context = {'person' : person}
     return render(request,'name.html',context)
-
-
-from django.shortcuts import render, redirect
-from .forms import PersonForm
-
-def person_form(request):
-    if request.method == 'POST':
-        form = PersonForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            phone_number = form.cleaned_data['phone_number']
-            if name or phone_number:
-                if name:
-                    return redirect(f'/persons/name/{name}')
-                elif phone_number:
-                    return redirect(f'/persons/phonenumber/{phone_number}')
-            else:
-                form.add_error(None, "Please provide either a name or a phone number.")
-    else:
-        form = PersonForm()
-    
-    context = {'form': form}
-    return render(request, 'search.html', context)

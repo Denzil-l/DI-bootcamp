@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <h2>Search person by his name</h2>
-    <form method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit">Submit</button>
+    <h2>Search person</h2>
+    <form method="POST" action="{% url 'search_person' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
     </form>
 
 </body>
