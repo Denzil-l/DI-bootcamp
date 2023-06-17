@@ -10,6 +10,7 @@ urlpatterns = [
     path('add_to_favorites/<int:film_id>/', add_to_favorites, name='add_to_favorites'),
     path('remove_from_favorites/<int:film_id>/', add_to_favorites, name='remove_from_favorites'),
     path('film/<int:pk>/', FilmDetailView.as_view(), name='filmDetail'),
-
+    path('films/<int:film_id>/add_favorite/', add_to_favorites, name='add_favorite_film'),
+    path('films/<int:film_id>/remove_favorite/', remove_from_favorites, name='remove_from_favorites'),
 
 ]

@@ -36,15 +36,20 @@ Homepage
             {% endfor %}
         </ul>
         <a class="btn btn-dark" href="http://127.0.0.1:8000/films/deleteFilm/{{film.id}}">Delete</a>
+        {% if film in request.user.user_profile.favorite_films.all %}
+        <form action="{% url 'remove_from_favorites' film.id %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">Remove from favorite</button>
+        </form>
+        {% else %}
+
 
         <form action="{% url 'add_to_favorites' film.id %}" method="post">
             {% csrf_token %}
             <button class="btn btn-primary" type="submit">Add to favorite</button>
         </form>
-        <form action="{% url 'remove_from_favorites' film.id %}" method="post">
-            {% csrf_token %}
-            <button class="btn btn-primary" type="submit">Remove from favorite</button>
-        </form>
+        {% endif %}
+
         <a class="btn btn-primary" href="http://127.0.0.1:8000/films/film/{{film.id}}">Check this film</a>
 
     </div>

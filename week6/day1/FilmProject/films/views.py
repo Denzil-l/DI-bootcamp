@@ -17,16 +17,28 @@ from accounts.models import User
 
 @login_required
 def add_to_favorites(request,film_id):
+    print('XXXXXXXX')
+
     film = get_object_or_404(Film,id = film_id)
-    user_profile = UserProfile.objects.get(user = request.user)
-    user_profile.favorite_films.add(film)
+    film = get_object_or_404(Film, id=film_id)
+    request.user.user_profile.favorite_films.add(film)
     return redirect(reverse_lazy('homepage'))
 @login_required
 def remove_from_favorites(request,film_id):
+    print('YYYYY')
     film = get_object_or_404(Film,id = film_id)
-    user_profile = UserProfile.objects.get(user = request.user)
-    user_profile.favorite_films.remove(film)
+    request.user.user_profile.favorite_films.remove(film)
     return redirect(reverse_lazy('homepage'))
+
+
+
+
+
+
+
+
+
+
 
 class HomePageView (generic.ListView):
     model = Film
@@ -77,7 +89,6 @@ class ReviewCreateView( generic.CreateView):
     form_class = ReviewForm
     template_name = 'review/addReview.html'
     success_url = '/films/homepage'
-
 class FilmDeleteView(UserPassesTestMixin,SuccessMessageMixin, generic.DeleteView):
     model = Film
     template_name = 'film/confirm_delete.html'
