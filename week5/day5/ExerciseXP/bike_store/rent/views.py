@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages 
 from .models import Vehicle,Vehicle_size,Vehicle_type,Address,Rental,Rental_Rate,RentalStation,Customer
-from .forms import RentalForm
+from .forms import RentalForm, CustomerForm,VehicleForm
 
 
 def rent_rental(request):
@@ -47,8 +47,10 @@ def rent_rental_add(request):
     if request.method == 'POST':
         form = RentalForm(request.POST)
         if form.is_valid():
-            customer_id = form.cleaned_data['customer']
-            vehicle_id = form.cleaned_data['vehicle']
+            customer = form.cleaned_data['customer']
+            vehicle = form.cleaned_data['vehicle']
+            customer_id = customer.id
+            vehicle_id = vehicle.id
 
             try:
                 customer = Customer.objects.get(id=customer_id)
@@ -71,3 +73,60 @@ def rent_rental_add(request):
 
     context = {'form': form}
     return render(request,'addrental.html',context)
+
+def rent_customer_pk(request, pk):
+    try:
+        customer = Customer.objects.get(pk=pk)
+    except Customer.DoesNotExist:
+        messages.error(request, 'Invalid customer ID.')
+    context = {'customer' : customer}
+    return render(request,'customer.html',context)
+
+def rent_customer(request):
+    customers = Customer.objects.order_by('last_name', 'first_name')
+    context = {'customers': customers}
+    return render(request, 'customer_list.html', context)
+
+def rent_customer_add(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('customer-list')  # Перенаправление на список всех клиентов
+
+    else:
+        form = CustomerForm()
+    
+    context = {'form': form}
+    return render(request, 'addcustomer.html', context)
+
+def rent_vehicle(request):
+    vehicle_types = Vehicle_type.objects.all()
+
+    context = {
+        'vehicle_types': vehicle_types,
+    }
+    return render(request, 'vehicle_list.html', context)
+
+def rent_vehicle_pk(request, pk):
+    try:
+        vehicle = Vehicle.objects.get(pk=pk)
+    except Customer.DoesNotExist:
+        messages.error(request, 'Invalid vehicle ID.')
+    context = {'vehicle' : vehicle}
+    return render(request,'vehicle.html',context)
+
+
+def rent_vehicle_add(request):
+    if request.method == 'POST':
+        form = VehicleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('vehicle-list')  # Перенаправление на список всех клиентов
+
+    else:
+        form = VehicleForm()
+    
+    context = {'form': form}
+    return render(request, 'addvehicle.html', context)
+

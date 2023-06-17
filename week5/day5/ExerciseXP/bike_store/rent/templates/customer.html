@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Name: {{customer.first_name}} {{customer.last_name}}</h2>
+<h2>Email: {{customer.email}}</h2>
+<h2>Phone: {{customer.phone_number}}</h2>
+<h2>Address: {{customer.address}}</h2>
+<h2>City: {{customer.city}}</h2>
+<h2>Country: {{customer.country}}</h2>
+{% endblock %}

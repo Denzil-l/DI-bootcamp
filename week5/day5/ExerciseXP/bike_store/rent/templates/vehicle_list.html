@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for vehicle_type in vehicle_types %}
+<h2>{{ vehicle_type.name }}</h2>
+<ul>
+    {% for vehicle in vehicle_type.vehicle_set.all %}
+    <li>{{ vehicle.vehicle }}</li>
+    <li>{{ vehicle.date_created }}</li>
+    <li>{{ vehicle.real_cost }}</li>
+    <li>{{ vehicle.size }}</li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}
