@@ -9,17 +9,15 @@ class Book(models.Model):
     page_count = models.IntegerField()
     categories = models.CharField(max_length=100)
     thumbnail_url = models.URLField()
-    
+    average_rating = models.FloatField(default=0)
     def __str__(self):
         return self.title
 
 class BookReview(models.Model):
     associated_book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField
+    rating = models.IntegerField()
     review_text = models.TextField()
 
     def __str__(self):
             return self.user.username
-
-

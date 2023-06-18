@@ -5,13 +5,14 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div style="display: flex; justify-content: space-between;" class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
+
                 {% else %}
 
                 <li class="nav-item">
@@ -23,7 +24,10 @@
                 {% endif %}
 
             </ul>
-
+            <form style="display: flex;" action="{% url 'book_search' %}" method="get">
+                <input class="form-control" placeholder="Search by title" type="text" name="query" value="{{query}}">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </nav>

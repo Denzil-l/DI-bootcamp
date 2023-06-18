@@ -2,11 +2,13 @@
 
 
 {% block title %}
-Home
+Search
 {% endblock %}
 
 {% block content %}
 {% include 'partials/navbar.html' %}
+
+<h2>Search</h2>
 {% for book in books %}
 <div class="card mb-3">
 

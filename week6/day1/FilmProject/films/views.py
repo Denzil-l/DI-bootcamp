@@ -39,7 +39,6 @@ def remove_from_favorites(request,film_id):
 
 
 
-
 class HomePageView (generic.ListView):
     model = Film
     template_name = 'homepage.html'
@@ -98,8 +97,7 @@ class FilmDeleteView(UserPassesTestMixin,SuccessMessageMixin, generic.DeleteView
         if self.request.user.is_superuser:
             return True
         else:
-            return False
-   
+            return False  
 class FilmDetailView (generic.DetailView):
     model = Film
     template_name = 'film/filmDetail.html'

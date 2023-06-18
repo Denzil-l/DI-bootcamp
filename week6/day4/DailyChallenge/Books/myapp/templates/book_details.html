@@ -7,10 +7,12 @@ Home
 
 {% block content %}
 {% include 'partials/navbar.html' %}
-{% for book in books %}
+
+<h2>Book: {{book.title}}</h2>
 <div class="card mb-3">
 
     <div class="card-body">
+        <h1>Book Details</h1>
         <h2>{{ book.title }}</h2>
         <p><strong>Author:</strong> {{ book.author }}</p>
         <p><strong>Published Date:</strong> {{ book.published_date }}</p>
@@ -18,13 +20,23 @@ Home
         <p><strong>Page Count:</strong> {{ book.page_count }}</p>
         <p><strong>Categories:</strong> {{ book.categories }}</p>
         <p><strong>Thumbnail URL:</strong> {{ book.thumbnail_url }}</p>
-        <a class="btn btn-dark" href="http://127.0.0.1:8000/book/{{book.id}}/">Details</a>
-        <a class="btn btn-dark" href="http://127.0.0.1:8000/book/{{book.id}}/review">Make review</a>
-    </div>
 
+        <h3>Reviews</h3>
+        <p><strong>Average Rating:</strong> {{ book.average_rating }}</p>
+        <p><strong>Review Count:</strong> {{ book.bookreview_set.count }}</p>
+
+        <ul>
+            {% for review in book.bookreview_set.all %}
+            <li>
+                <p><strong>User:</strong> {{ review.user }}</p>
+                <p><strong>Rating:</strong> {{ review.rating }}</p>
+                <p><strong>Review:</strong> {{ review.review_text }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 
-{% endfor %}
 
 
 {% endblock %}
