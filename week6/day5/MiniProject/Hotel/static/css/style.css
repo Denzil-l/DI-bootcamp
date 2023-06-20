@@ -1,0 +1,103 @@
+.wrapper {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description,
+.location,
+.carousel,
+.reviews {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-text {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.carousel-item img {
+    border-radius: 5px;
+    border: 2px solid black;
+    /* Задайте желаемую ширину */
+    width: 100%;
+    object-fit: contain;
+    /* Задайте желаемую высоту */
+    /* Для сохранения пропорций и обрезания изображения при необходимости */
+}
+
+.grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* Определение количества и ширины колонок */
+    grid-gap: 10px;
+    /* Промежуток между ячейками */
+}
+
+.grid-item {
+    height: 100%;
+    width: 100%;
+}
+
+/* Стили для даты (date) */
+.date {
+    border-radius: 5px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 100%;
+}
+
+.date {
+    text-align: center;
+}
+
+/* Стили для доступной даты (available) */
+.date.available {
+    background-color: #aaffaa;
+    transition: 0.3s;
+
+}
+
+button {
+    background-color: transparent;
+
+    border: 0;
+}
+
+button h2 {
+    font-size: 20px;
+}
+
+/* Стили для недоступной даты (noavailable) */
+.date.noavailable {
+
+    background-color: #ffaaaa;
+}
+
+.noavailable h2 {
+    font-size: 20px;
+}
+
+.booked h2 {
+    font-size: 20px;
+
+}
+
+.booked {
+
+    background-color: lime;
+}

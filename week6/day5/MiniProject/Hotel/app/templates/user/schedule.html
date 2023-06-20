@@ -1,0 +1,46 @@
+{% extends 'blocks/main.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'blocks/navbar.html' %}
+
+<div class="wrapper">
+
+    <div class="grid">
+        {% for date in dates %}
+        {% if date.available == True %}
+        {% if user.is_superuser %}
+        <form class="date available" method="GET" action="{% url 'superbooking' %}">
+            <button type="submit" name="date_id" value="{{ date.id }}">
+                <h2 class='button'>{{date.date}}</h2>
+            </button>
+        </form>
+        {% else %}
+        <form class="date available" method="GET" action="{% url 'booking' %}">
+            <button type="submit" name="date_id" value="{{ date.id }}">
+                <h2 class='button'>{{date.date}}</h2>
+            </button>
+        </form>
+        {% endif %}
+
+
+        {% else %}
+        {% for booking in date.bookings.all %}
+
+        <div class="date {% if user ==  booking.user%}booked{% else %}noavailable {% endif %}">
+            <h2>{{date.date}}</h2>
+            {% if user.is_superuser %}
+            <form action="{% url 'delete_date' booking.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

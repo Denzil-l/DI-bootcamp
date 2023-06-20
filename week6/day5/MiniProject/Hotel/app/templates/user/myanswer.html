@@ -1,0 +1,19 @@
+{% extends 'blocks/main.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'blocks/navbar.html' %}
+
+<h1>Dear {{user}}, here is your answers:</h1>
+{% for answer in answers %}
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        <h6 class="card-subtitle mt-3">Your question:</h6>
+        {{answer.question.question}}
+        <h6 class="card-subtitle mt-3">Your Answer:</h6>
+        {{answer.text}}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

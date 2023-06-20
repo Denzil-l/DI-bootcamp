@@ -1,0 +1,56 @@
+{% extends 'blocks/main.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'blocks/navbar.html' %}
+
+<div class="wrapper">
+    <div class="card description">
+        <div class=" card-body">
+            <h5 class="card-title">Welcome to our Hotel somewhere in Skyrim</h5>
+            <p class="card-text">{{ hotel.first.description }}</p>
+        </div>
+    </div>
+    <div class="location">
+        <div class="card">
+            <img src="{% static 'images/location.jpg' %}" class="card-img-top border border-dark" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title">{{hotel.first.location}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="slider">
+        {% include 'blocks/slider.html' %}
+    </div>
+    <div class="reviews">
+        <h2>User Reviews</h2>
+        <ul class="list-group">
+            {% for review in reviews %}
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                    <h5 class="mb-1">{{ review.user.username }}</h5>
+                    <!-- Remove the badge with count -->
+                </div>
+                <p class="mb-1">{{ review.description }}</p>
+                <ul class="list-group mt-2">
+                    {% with last_date=review.visit_dates.last.date %}
+                    <li class="list-group-item border-bottom-0">
+                        <i class="bi bi-calendar3 me-2"></i>
+                        {{ review.visit_dates.all.0.date }} - {{ last_date }}
+                        {% if user.is_superuser %}
+                        <form action="{% url 'delete_review' review.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endwith %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+</div>
+{% endblock %}

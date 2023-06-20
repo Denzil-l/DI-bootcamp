@@ -1,0 +1,46 @@
+{% extends 'blocks/main.html' %}
+
+{% block content %}
+{% include 'blocks/navbar.html' %}
+
+<h1>All Notes</h1>
+{% for user in users %}
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ user.username }}</h5>
+
+
+        <h6 class="card-subtitle mb-2 text-muted">Booking for next dates:
+            <ul>
+
+                {% for book in books %}
+                {% if book.user == user %}
+                <li>{{book.date}}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+        </h6>
+        {% for question in questions %}
+        {% if question.user == user %}
+
+        <h6 class="card-subtitle mt-3">Questions:</h6>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                {{question.question }}
+                <form method="GET" action="{% url 'answer' %}">
+                    <button style="margin-top: 10px;" class="btn btn-primary" type="submit" name="question_id"
+                        value="{{ question.id }}">
+                        <h2 class='button' style="font-size: 16px;">Answer</h2>
+                    </button>
+                </form>
+            </li>
+        </ul>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
