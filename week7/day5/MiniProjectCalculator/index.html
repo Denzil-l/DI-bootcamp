@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="grid-container">
+            <div class="block block-1"></div>
+            <div class="block block-1"></div>
+            <div class="block block-1"></div>
+            <div class="block block-1" id="result">0</div>
+            <div onclick="addSomething('.block-2')" class="block block-2">0</div>
+            <div onclick="addSomething('.block-3')" class="block block-3">1</div>
+            <div onclick="addSomething('.block-4')" class="block block-4">2</div>
+            <div onclick="addSomething('.block-5')" class="block block-5">3</div>
+            <div onclick="addSomething('.block-6')" class="block block-6">4</div>
+            <div onclick="addSomething('.block-7')" class="block block-7">5</div>
+            <div onclick="addSomething('.block-8')" class="block block-8">6</div>
+            <div onclick="addSomething('.block-9')" class="block block-9">7</div>
+            <div onclick="addSomething('.block-10')" class="block block-10">8</div>
+            <div onclick="addSomething('.block-11')" class="block block-11">9</div>
+            <div onclick="addSomething('.block-12')" class="block block-12">.</div>
+            <div onclick="addSomething('.block-13')" class="block block-13">+</div>
+            <div onclick="addSomething('.block-14')" class="block block-14">-</div>
+            <div onclick="addSomething('.block-15')" class="block block-15">*</div>
+            <div onclick="addSomething('.block-16')" class="block block-16">/</div>
+            <div onclick="equal()" class="block block-17">=</div>
+            <div class="block block-18"></div>
+            <div onclick="reset()" class="block block-18">reset</div>
+            <div class="block block-19"></div>
+            <div onclick="reset()" class="block block-19">clear</div>
+        </div>
+    </div>
+    <script src="./scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+/* Обнуление отступов и отступов блока */
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Обнуление стилей списка */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Обнуление границ изображения */
+  img {
+    border-style: none;
+  }
+  
+  /* Обнуление границы и отступов ссылки */
+  a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Обнуление стилей таблицы */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  /* Обнуление стилей формы и элементов формы */
+  button, input, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: middle;
+  }
+  
+  /* Обнуление стилей заголовков */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  
+  /* Обнуление стиля курсива и жирного текста */
+  em, strong {
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  /* Обнуление стилей определения списка */
+  dl {
+    margin-bottom: 0;
+  }
+  
+  /* Обнуление стилей цитаты */
+  blockquote {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Обнуление стилей горизонтальной линии */
+  hr {
+    display: none;
+  }
+  
+  /* Обнуление стилей полей ввода номера */
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  /* Обнуление стилей прокрутки */
+  ::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+.wrapper{
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    'block1 block1 block1 block1'
+    'block2 block3 block4 block5'
+    'block6 block7 block8 block9'
+    'block10 block11 block12 block13'
+    'block14 block15 block16 block17'
+    'block18 block18 block19 block19'
+    ;
+    grid-gap: 10px;
+    border-radius: 5px;
+    border: 4px solid black;
+    color: black;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .block {
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    padding: 20px 25px;
+    text-align: center;
+    transition: .3s;
+    cursor: pointer;
+  }
+  .block:hover{
+    background: rgb(9, 174, 228);
+  }
+  .block-1{
+    border-bottom: 4px solid black;
+    grid-area: block1;
+    text-align: left;
+    line-height: 0;
+    padding: 25px;
+}
+
+  .block-2{
+    grid-area: block2;
+  }
+  .block-3{
+    grid-area: block3;
+  }
+  .block-4{
+    grid-area: block4;
+  }
+  .block-5{
+    grid-area: block5;
+  }
+  .block-6{
+    grid-area: block6;
+  }
+  .block-7{
+    grid-area: block7;
+  }
+  .block-8{
+    grid-area: block8;
+  }
+  .block-9{
+    grid-area: block9;
+  }
+  .block-10{
+    grid-area: block10;
+  }
+  
+  .block-11{
+    grid-area: block11;
+  }
+  
+  .block-12{
+    grid-area: block12;
+  }
+  
+  .block-13{
+    grid-area: block13;
+  }
+  
+  .block-14{
+    grid-area: block14;
+  }
+  
+  .block-15{
+    grid-area: block15;
+  }
+  .block-16{
+    grid-area: block16;
+  }
+  .block-17{
+    grid-area: block17;
+  }
+  .block-18{
+    grid-area: block18;
+  }
+  .block-19{
+    grid-area: block19;
+  }
+  

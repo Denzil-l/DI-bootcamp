@@ -1,0 +1,173 @@
+/* Обнуление отступов и отступов блока */
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Обнуление стилей списка */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Обнуление границ изображения */
+  img {
+    border-style: none;
+  }
+  
+  /* Обнуление границы и отступов ссылки */
+  a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Обнуление стилей таблицы */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  /* Обнуление стилей формы и элементов формы */
+  button, input, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: middle;
+  }
+  
+  /* Обнуление стилей заголовков */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  
+  /* Обнуление стиля курсива и жирного текста */
+  em, strong {
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  /* Обнуление стилей определения списка */
+  dl {
+    margin-bottom: 0;
+  }
+  
+  /* Обнуление стилей цитаты */
+  blockquote {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Обнуление стилей горизонтальной линии */
+  hr {
+    display: none;
+  }
+  
+  /* Обнуление стилей полей ввода номера */
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  /* Обнуление стилей прокрутки */
+  ::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+.wrapper{
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:url('./back/ss_ba130c06b9e4433ba7ab62a7b81fe4a87999e240.1920x1080.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+
+}
+.container{
+
+  min-height: 100px;
+  padding: 0px 100px;
+  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  transition: .3s;
+}
+
+.block{
+  margin:20px;
+  width: 30px;
+  height: 30px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.5); /* Черный цвет с прозрачностью 0.5 */
+  box-shadow: 0 0 10px 5px blue; /* Золотистый box shadow */
+  border-radius: 5px;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  cursor: pointer;
+  color: white;
+
+}
+.block-1{
+  margin-top: 40px;
+}
+.block-2{
+  margin-bottom: 40px;
+}
+.block:hover{
+  box-shadow: 0 0 10px 5px white; /* Золотистый box shadow */
+}
+
+.audio{
+  display: none;
+}
+.play{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 2px solid gold;
+  border-radius: 5px;
+  color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: .3s;
+}
+.play:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+}
