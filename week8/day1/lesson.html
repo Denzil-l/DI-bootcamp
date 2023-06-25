@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form id="form1" onsubmit="getvalue()">
+        <label>First name: </label><input type="text" name="fname" value="David"><br>
+        <label>Last name: </label><input type="text" name="lname" value="BenGurion"><br>
+        <input type="submit" value="Submit">
+    </form> -->
+    <!-- <select id="select1">
+        <option value="apple">Middle School</option>
+        <option value="pear">University</option>
+        <option value="banana">College</option>
+    </select>
+    <script src="./lesson.js"></script> -->
+    <p id="demo"></p>
+
+    <button onclick="myStopFunction()">Stop time</button>
+
+    <script>
+        let timer = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            let date = new Date();
+            let time = date.toLocaleTimeString();
+            // date.toLocaleTimeString() returns a string with a language sensitive representation of the time portion of this date
+            document.getElementById("demo").innerHTML = time;
+        }
+
+        function myStopFunction() {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+
+</html>
