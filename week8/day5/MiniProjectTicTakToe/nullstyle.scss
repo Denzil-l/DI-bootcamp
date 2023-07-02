@@ -1,0 +1,79 @@
+/* Обнуление стилей */
+
+/* Сброс отступов и полей */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+figcaption,
+dl,
+dd,
+ul,
+ol,
+li,
+pre,
+code,
+fieldset,
+legend {
+    margin: 0;
+    padding: 0;
+}
+
+/* Сброс стандартных стилей списков */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Сброс стандартных стилей гиперссылок */
+a {
+    text-decoration: none;
+}
+
+/* Сброс стандартных стилей форм */
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* Сброс стандартных стилей элементов */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/* Сброс стандартных стилей шрифтов */
+body {
+    line-height: 1;
+    font-family: Arial, sans-serif;
+}
+
+/* Сброс стандартных стилей таблиц */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
