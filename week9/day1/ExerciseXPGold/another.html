@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #666;
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block"></div>
+
+    <script>
+        let data = new URLSearchParams(window.location.search);
+        const block = document.querySelector('.block')
+        block.innerHTML += `<p>My name is: ${data.get('x')}</p>`
+        block.innerHTML += `<p>And my secondName is: ${data.get('y')}</p>`
+    </script>
+</body>
+
+</html>

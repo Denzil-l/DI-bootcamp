@@ -22,8 +22,8 @@
 // console.log(form.elements.name.checked)
 
 
-const volume = (l) => (w) => (h) => l*w*h
-console.log(volume(1)(2)(3))
+// const volume = (l) => (w) => (h) => l*w*h
+// console.log(volume(1)(2)(3))
 
 
 // let student = {
@@ -57,28 +57,75 @@ console.log(volume(1)(2)(3))
 
 // func()
 
-const func = (a, b) => {
-    let result;
-    try {
-        result = a / b
-        if (b == 0) {
-            throw new Error('Cannot divide by Zero');
-        }
-    } catch (err) {
-        if (err instanceof ReferenceError) {
-            console.log(`
-                Error Name : ${err.name}, 
-                Error Msg : ${err.message}`
-            )
-        } else {
-            console.log(`
-                Error Name : ${err.name}, 
-                Error Msg : ${err.message}`
-            )
-        }
-    } finally {
-        console.log("Function done")
-    }
-}
+// const func = (a, b) => {
+//     let result;
+//     try {
+//         result = a / b
+//         if (b == 0) {
+//             throw new Error('Cannot divide by Zero');
+//         }
+//     } catch (err) {
+//         if (err instanceof ReferenceError) {
+//             console.log(`
+//                 Error Name : ${err.name}, 
+//                 Error Msg : ${err.message}`
+//             )
+//         } else {
+//             console.log(`
+//                 Error Name : ${err.name}, 
+//                 Error Msg : ${err.message}`
+//             )
+//         }
+//     } finally {
+//         console.log("Function done")
+//     }
+// }
 
-func(3, 0)
+// func(3, 0)
+
+let jsonString = `
+{
+    "quiz": {
+        "sport": {
+            "q1": {
+                "question": "Which one is correct team name in NBA?",
+                "options": [
+                    "New York Bulls",
+                    "Los Angeles Kings",
+                    "Golden State Warriros",
+                    "Huston Rocket"
+                ],
+                "answer": "Huston Rocket"
+            }
+        },
+        "maths": {
+            "q1": {
+                "question": "5 + 7 = ?",
+                "options": [
+                    10,
+                    11,
+                    12,
+                    13
+                ],
+                "answer": 12
+            },
+            "q2": {
+                "question": "12 - 8 = ?",
+                "options": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "answer": 4
+            }
+        }
+    }
+}`
+
+let json = JSON.parse(jsonString)
+json.quiz.sport.q1.options.forEach(element => {
+  console.log(element)  
+})
+let newJson = JSON.stringify(json)
+console.log(newJson)

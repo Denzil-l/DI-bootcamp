@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Generate</title>
+    <style>
+        input::-webkit-calendar-picker-indicator,
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            display: none;
+            -webkit-appearance: none;
+        }
+
+        #options {
+            border: 2px solid gold;
+            color: rebeccapurple;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <section class="block block-one">
+                <button class="generate">Generate Quote</button>
+                <p></p>
+            </section>
+            <section class="block block-two">
+                <form>
+                    <input id="myInput" name="search" type="text" placeholder="Search by author" list="options">
+                    <datalist id="options">
+
+                    </datalist>
+                    <button type="submit" class="search">Search</button>
+                </form>
+                <p></p>
+                <div class="buttons">
+                    <button class="previous">Previous</button>
+                    <button class="next">Next</button>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
