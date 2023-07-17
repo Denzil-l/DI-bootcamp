@@ -42,6 +42,3 @@ app.get('/user/:ziv',(req,res)=>{
 })
 
 app.listen(3000);
-// app.listen(app.get('port'), ()=>{
-  // console.log('listen on port 9000');
-// })

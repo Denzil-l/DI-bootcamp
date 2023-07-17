@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const user = {firstname: 'John',lastname: 'Doe'}
 app.use(express.static('public2'))
 
 
