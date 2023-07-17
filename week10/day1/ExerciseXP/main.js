@@ -3,6 +3,8 @@
 // const b = 10
 // console.log(`Hi, you are ${a+b}`)
 
+console.log('Hi! How are you ?')
+
 const a = 5;
 const b = 10;
 let x;

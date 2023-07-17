@@ -9,4 +9,3 @@ module.exports = {
     add : addOperator,
     div : divideOperator
 }
-console.log(addOperator(1,2))
