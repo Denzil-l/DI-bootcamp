@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); %>
+
+    <body>
+        <%- include('partials/header') %>
+
+            <h1>Homepage</h1>
+
+            <%- include('partials/post', { posts: posts }) %>
+
+                <%- include('partials/footer') %>
+    </body>
+
+</html>
