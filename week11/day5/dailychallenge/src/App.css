@@ -1,0 +1,68 @@
+
+header {
+  background: linear-gradient(145deg, rgba(251,29,169,1) 0%, rgba(46,34,41,1) 50%, rgba(34,34,34,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  color: white;
+}
+.score{
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+}
+
+.block{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 20px;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(145deg, rgba(34,34,34,1) 0%, rgba(46,34,41,1) 50%, rgba(251,29,169,1) 100%);
+}
+.container{
+  margin: 20px auto;
+  width: 90%;
+  min-height: 600px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media(max-width:768px){
+  .container{
+    justify-content: center;
+  }
+}
+.result{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  
+}
+.result button{
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  border: 2px solid rgb(255, 0, 174);
+  padding: 10px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s;
+}
+.result button:hover{
+  letter-spacing: 1px;
+}
+
